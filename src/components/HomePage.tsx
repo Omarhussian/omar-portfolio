@@ -1,24 +1,17 @@
-"use client";
-
-import { useState, useCallback } from "react";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import BentoGrid from "@/components/BentoGrid";
 import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
-import SnakeGame from "@/components/SnakeGame";
-import FloatingGameButton from "@/components/FloatingGameButton";
-import { useKonamiCode } from "@/components/KonamiCode";
+import GameWrapper from "@/components/GameWrapper";
+import LatestArticles from "@/components/blog/LatestArticles";
+import Newsletter from "@/components/blog/Newsletter";
+import { getAllPosts } from "@/lib/mdx";
 
-export default function HomePage() {
-  const [showGame, setShowGame] = useState(false);
-
-  const handleKonami = useCallback(() => {
-    setShowGame(true);
-  }, []);
-
-  useKonamiCode(handleKonami);
+export default async function HomePage() {
+  // Fetch posts on the server
+  const posts = await getAllPosts();
 
   return (
     <>
@@ -27,12 +20,15 @@ export default function HomePage() {
         <About />
         <Experience />
         <BentoGrid />
+        <LatestArticles posts={posts} />
         <Skills />
+        <div className="max-w-6xl mx-auto px-6 pb-32">
+          <Newsletter />
+        </div>
         <Footer />
       </main>
       
-      <FloatingGameButton onClick={() => setShowGame(true)} />
-      <SnakeGame isOpen={showGame} onClose={() => setShowGame(false)} />
+      <GameWrapper />
     </>
   );
 }

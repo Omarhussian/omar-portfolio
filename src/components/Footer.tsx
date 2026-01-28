@@ -16,12 +16,23 @@ export default function Footer() {
           viewport={{ once: true }}
           className="flex flex-col md:flex-row items-center justify-between gap-8"
         >
-          <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold text-white mb-2">Omar Hussain</h3>
-            <p className="text-zinc-500 text-sm">
-              Senior Front-End Engineer • Cairo, Egypt
-            </p>
-          </div>
+        <div className="text-center md:text-left">
+          <h3 className="text-xl font-bold text-white mb-2">Omar Hussain</h3>
+          <p className="text-zinc-500 text-sm">
+            Senior Front-End Engineer • Cairo, Egypt
+          </p>
+          <nav className="flex gap-6 mt-4 justify-center md:justify-start">
+            <a href="/#about" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              About
+            </a>
+            <a href="/blog" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              Blog
+            </a>
+            <a href="/#projects" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              Projects
+            </a>
+          </nav>
+        </div>
 
           <div className="flex items-center gap-4">
             <motion.a
