@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { getAllPosts } from "@/lib/mdx";
 import BlogCard from "@/components/blog/BlogCard";
-import { motion } from "framer-motion";
 import Newsletter from "@/components/blog/Newsletter";
+import BlogHero from "@/components/blog/BlogHero";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -21,25 +21,7 @@ export default async function BlogPage() {
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-zinc-900 to-zinc-950 border-b border-zinc-800">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-          <div className="max-w-3xl">
-            <p className="text-zinc-400 text-sm font-medium tracking-[0.3em] uppercase mb-6">
-              Blog & Insights
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Building the Future of{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                Fintech & AI
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-zinc-400 leading-relaxed">
-              Lessons learned from architecting secure, high-scale systems for millions of users.
-              Deep dives into React, TypeScript, security patterns, and performance optimization.
-            </p>
-          </div>
-        </div>
-      </section>
+      <BlogHero />
 
       {/* Blog Posts Grid */}
       <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">

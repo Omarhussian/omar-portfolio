@@ -52,11 +52,11 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
   });
 
   return (
-    <Link href={`/blog/${post.slug}`} className="group block">
+    <Link href={`/blog/${post.slug}`} className="group block h-full">
       <div
         className={`relative ${
-          featured ? "p-8 h-full" : "p-6"
-        } rounded-3xl bg-gradient-to-br ${colors.gradient} border border-zinc-800 ${
+          featured ? "p-8" : "p-6"
+        } h-full rounded-3xl bg-gradient-to-br ${colors.gradient} border border-zinc-800 ${
           colors.hoverColor
         } hover:border-zinc-700 transition-all duration-500 hover:shadow-2xl hover:shadow-${
           post.category.toLowerCase()
@@ -66,7 +66,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/90 to-zinc-900/70" />
 
         {/* Content */}
-        <div className={`relative z-10 ${featured ? "h-full flex flex-col" : ""}`}>
+        <div className="relative z-10 h-full flex flex-col">
           {/* Header */}
           <div className="flex items-start justify-between mb-4">
             <span
