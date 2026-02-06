@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export default function BlogHero() {
   return (
@@ -12,6 +14,22 @@ export default function BlogHero() {
       
       <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 relative z-10">
         <div className="max-w-3xl">
+          {/* Back to Home */}
+          <motion.div
+            initial={{ opacity: 0, x: -13 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8"
+          >
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors group"
+            >
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              <span>Back to Home</span>
+            </Link>
+          </motion.div>
+          
           <motion.p 
             initial={{ opacity: 0, y: 13 }}
             animate={{ opacity: 1, y: 0 }}
